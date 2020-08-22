@@ -1,0 +1,40 @@
+{
+  "name": "team-988-eretailshopbackend",
+  "version": "1.0.0",
+  "description": "Managing DB Tables and APIs",
+  "main": "server.js",
+  "scripts": {
+    "start:dev": "nodemon ./bin/run.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BuildForSDGCohort2/Team-988-eRetailShop-Backend.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "sequilize",
+    "postgresql",
+    "rest",
+    "api"
+  ],
+  "author": "Christian Uwakristu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BuildForSDGCohort2/Team-988-eRetailShop-Backend/issues"
+  },
+  "homepage": "https://github.com/BuildForSDGCohort2/Team-988-eRetailShop-Backend#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "pg": "^8.2.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.10"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
