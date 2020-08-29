@@ -1,7 +1,8 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const Joi = require("joi");
+require("dotenv").config();
+const jwt = require("jsonwebtoken");
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Users extends Model {
     /**
@@ -12,17 +13,53 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
-  };
-  Users.init({
-    name: DataTypes.STRING,
-    username: DataTypes.STRING,
-    password: DataTypes.STRING,
-    status: DataTypes.BOOLEAN,
-    phone: DataTypes.STRING,
-    email: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Users',
-  });
+  }
+  Users.init(
+    {
+      name: DataTypes.STRING,
+      username: DataTypes.STRING,
+      password: DataTypes.STRING,
+      status: DataTypes.BOOLEAN,
+      phone: DataTypes.STRING,
+      email: DataTypes.STRING,
+      profileid: DataTypes.INTEGER,
+      photo: DataTypes.STRING,
+    },
+    {
+      sequelize,
+      modelName: "Users",
+    },
+    // Class Method
+    (Model.generateAuthToken = function () {
+      const token = jwt.sign(
+        {
+          id: this.id,
+          username: this.username,
+          email: this.email,
+          profileid: this.profileid,
+        },
+        process.env.jwtPrivateKey
+      );
+      return token;
+    })
+  );
   return Users;
 };
+
+function validateUser(user) {
+  const schema = Joi.object({
+    name: Joi.string().min(2).max(50).required(),
+    username: Joi.string().min(5).max(255).required(),
+    password: Joi.string().min(5).max(255).required(),
+    phone: Joi.string().min(2).max(50).required(),
+    email: Joi.string().email({
+      minDomainSegments: 2,
+      tlds: { allow: ["com", "net"] },
+    }),
+    profileid: Joi.number().integer().required(),
+    photo: Joi.string().min(2).max(50).required(),
+  });
+
+  return schema.validate(user);
+}
+module.exports.validate = validateUser;

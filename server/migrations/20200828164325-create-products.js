@@ -14,7 +14,7 @@ module.exports = {
       productnumber: {
         type: Sequelize.STRING
       },
-      productlabel: {
+      image: {
         type: Sequelize.STRING
       },
       startinginventory: {
@@ -27,6 +27,15 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       minimumurequired: {
+        type: Sequelize.INTEGER
+      },
+      buyingPrice: {
+        type: Sequelize.INTEGER
+      },
+      sellingPrice: {
+        type: Sequelize.INTEGER
+      },
+      categoryId: {
         type: Sequelize.INTEGER
       },
       createdAt: {
