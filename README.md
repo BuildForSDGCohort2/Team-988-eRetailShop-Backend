@@ -7,4 +7,4 @@ A backend of retail management application API and payment methods to support re
 - API to manage inventory
 - API to manage sales
 - API to manage users
-- API to manage payment
+- # API to manage payment
