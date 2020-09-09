@@ -1,3 +1,4 @@
+displayRoutes = require("express-routemap");
 const express = require("express");
 const logger = require("morgan");
 const bodyParser = require("body-parser");
@@ -13,6 +14,8 @@ const productsRoute = require("./productsRoute");
 const purchasesRoute = require("./purchasesRoute");
 const salesRoute = require("./salesRoute");
 const suppliersRoute = require("./suppliersRoute");
+
+const momoRoute = require("./momoRoute");
 
 // Set up the express app
 const app = express();
@@ -31,8 +34,10 @@ app.get("/api/v1/", (req, res) =>
     message: "Welcome to the eRetailShop Backend API",
   })
 );
-
+//Authentication
 app.use("/api/v1/", authRoute);
+
+//Features routes
 app.use("/api/v1/", usersRoute);
 app.use("/api/v1/", categoryRoute);
 app.use("/api/v1/", clientsRoute);
@@ -41,4 +46,10 @@ app.use("/api/v1/", productsRoute);
 app.use("/api/v1/", purchasesRoute);
 app.use("/api/v1/", salesRoute);
 app.use("/api/v1/", suppliersRoute);
+
+//Momo Payment
+app.use("/api/v1/", momoRoute);
+
+//Get routes path
+//displayRoutes(app);
 module.exports = app;

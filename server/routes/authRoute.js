@@ -1,5 +1,4 @@
 const express = require("express");
-
 const authCrontroller = require("../controllers/authController");
 
 const authRoute = express.Router();

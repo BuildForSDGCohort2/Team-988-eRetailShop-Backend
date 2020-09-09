@@ -1,8 +1,6 @@
+const express = require("express");
 const auth = require("../middleware/auth");
 const profileCheck = require("../middleware/profileCheck");
-
-const express = require("express");
-
 const clientsCrontroller = require("../controllers/clientsController");
 
 const clientsRoute = express.Router();

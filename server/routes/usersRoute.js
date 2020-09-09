@@ -1,7 +1,6 @@
+const express = require("express");
 const auth = require("../middleware/auth");
 const profileCheck = require("../middleware/profileCheck");
-
-const express = require("express");
 
 const usersCrontroller = require("../controllers/usersController");
 
@@ -11,7 +10,7 @@ usersRoute.get("/user", auth, usersCrontroller.list);
 
 usersRoute.get("/user/:userId", auth, usersCrontroller.listById);
 
-usersRoute.post("/user").post(usersCrontroller.create);
+usersRoute.post("/user", usersCrontroller.create);
 
 usersRoute.put("/user/:userId", auth, usersCrontroller.update);
 
