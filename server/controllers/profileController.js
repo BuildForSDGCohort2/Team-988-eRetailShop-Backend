@@ -9,16 +9,20 @@ const profileCrontroller = {
     if (error) return res.status(400).send(error.details[0].message);
 
     const profile = await Profiles.create({
-      name: req.body.name,
+      profilename: req.body.name,
     });
 
     if (!profile) return res.status(404).send("profile  not found");
     res.status(200).json({ data: profile });
   },
   list: async (req, res) => {
-    const profile = await Profiles.findAll();
-    if (!profile) return res.status(404).send("profile  not found");
-    res.status(200).json({ data: profile });
+    const profiles = await Profiles.findAll({
+      attributes: {
+        exclude: ["createdAt", "updatedAt"],
+      },
+    });
+    if (!profiles) return res.status(404).send("profile  not found");
+    res.status(200).json({ data: profiles });
   },
   listById: async (req, res) => {
     const profile = await Profiles.findByPk(req.params.profileId);

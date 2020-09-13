@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Profiles.init(
     {
-      name: DataTypes.STRING,
+      profilename: DataTypes.STRING,
     },
     {
       sequelize,
@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
 
 function validateProfile(profile) {
   const schema = Joi.object({
-    name: Joi.string().min(2).max(50).required(),
+    profilename: Joi.string().min(2).max(50).required(),
   });
 
   return schema.validate(profile);
