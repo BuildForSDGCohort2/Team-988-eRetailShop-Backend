@@ -14,6 +14,7 @@ const productsRoute = require("./productsRoute");
 const purchasesRoute = require("./purchasesRoute");
 const salesRoute = require("./salesRoute");
 const suppliersRoute = require("./suppliersRoute");
+const profileRoute = require("./profileRoute");
 
 const momoRoute = require("./momoRoute");
 
@@ -46,7 +47,7 @@ app.use("/api/v1/", productsRoute);
 app.use("/api/v1/", purchasesRoute);
 app.use("/api/v1/", salesRoute);
 app.use("/api/v1/", suppliersRoute);
-
+app.use("/api/v1/", profileRoute);
 //Momo Payment
 app.use("/api/v1/", momoRoute);
 
