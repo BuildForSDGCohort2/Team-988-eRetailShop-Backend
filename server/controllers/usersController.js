@@ -33,7 +33,11 @@ const usersCrontroller = {
     res.header("x-auth-token", token).status(200).json({ data: user });
   },
   list: async (req, res) => {
-    const users = await Users.findAll();
+    const users = await Users.findAll({
+    attributes: {
+        exclude: ['password']
+    }
+   });
     if (!users) return res.status(404).send("users  not found");
     res.status(200).json({ data: users });
   },

@@ -2,6 +2,7 @@ const Joi = require("joi");
 const bcrypt = require("bcrypt");
 const _ = require("lodash");
 const Users = require("../models").Users;
+const generateAuthToken = require("../Services/generateAuthenticationToken");
 
 const authCrontroller = {
   auth: async (req, res) => {
@@ -17,7 +18,7 @@ const authCrontroller = {
     );
     if (!validatePassword)
       return res.status(400).send("Invalid username or password!");
-    const token = Users.generateAuthToken();
+    const token = generateAuthToken(user.username,user.profileid);
     res.send(token);
   },
 };

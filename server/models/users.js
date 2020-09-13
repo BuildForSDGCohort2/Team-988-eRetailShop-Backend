@@ -30,18 +30,6 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "Users",
     },
     // Class Method
-    (Model.generateAuthToken = function () {
-      const token = jwt.sign(
-        {
-          id: this.id,
-          username: this.username,
-          email: this.email,
-          profileid: this.profileid,
-        },
-        process.env.jwtPrivateKey
-      );
-      return token;
-    })
   );
   return Users;
 };
