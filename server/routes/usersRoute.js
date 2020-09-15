@@ -14,10 +14,12 @@ usersRoute.post("/user", usersCrontroller.create);
 
 usersRoute.put("/user/:userId", auth, usersCrontroller.update);
 
-usersRoute.delete(
+/*usersRoute.delete(
   "/user/:userId",
   [auth, profileCheck.isStoreManager],
   usersCrontroller.delete
-);
+);*/
+
+usersRoute.delete("/user/:userId",auth,usersCrontroller.delete);
 
 module.exports = usersRoute;

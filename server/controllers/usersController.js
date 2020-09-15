@@ -1,3 +1,4 @@
+require("dotenv").config();
 const bcrypt = require("bcrypt");
 const _ = require("lodash");
 const Users = require("../models").Users;
@@ -6,38 +7,41 @@ const { validate } = require("../models/users");
 const usersCrontroller = {
   create: async (req, res) => {
     const { error } = validate(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
+    if (error) return res.status(400).json({ data: error.details[0].message });
 
     let user = await Users.findOne({ where: { username: req.body.username } });
-    if (user) return res.status(400).send("User already registered.");
+    if (user)
+      return res.status(200).json({
+        data: { status: 0, statusMessage: "User already registered." },
+      });
 
     user = new Users(
       _.pick(req.body, [
         "name",
         "username",
         "email",
-        "password",
         "profileid",
         "phone",
         "photo",
       ])
     );
     const salt = await bcrypt.genSalt(10);
-    user.password = await bcrypt.hash(user.password, salt);
+    user.password = await bcrypt.hash(process.env.defaultPassword, salt);
     user.status = true;
+    user.first_login_flag = true;
     user = await user.save();
-    if (!user) return res.status(404).send("user  not found");
-
-    const token = Users.generateAuthToken();
-
-    res.header("x-auth-token", token).status(200).json({ data: user });
+    if (!user) return res.status(404).json({ data: "user  not found" });
+    res
+      .status(200)
+      .json({ data: { status: 1, statusMessage: "User created!" } });
   },
   list: async (req, res) => {
     const users = await Users.findAll({
-    attributes: {
-        exclude: ['password']
-    }
-   });
+      attributes: {
+        exclude: ["password"],
+      },
+    });
+
     if (!users) return res.status(404).send("users  not found");
     res.status(200).json({ data: users });
   },

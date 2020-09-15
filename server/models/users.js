@@ -1,7 +1,5 @@
 "use strict";
 const Joi = require("joi");
-require("dotenv").config();
-const jwt = require("jsonwebtoken");
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Users extends Model {
@@ -24,11 +22,12 @@ module.exports = (sequelize, DataTypes) => {
       email: DataTypes.STRING,
       profileid: DataTypes.INTEGER,
       photo: DataTypes.STRING,
+      first_login_flag: DataTypes.BOOLEAN,
     },
     {
       sequelize,
       modelName: "Users",
-    },
+    }
     // Class Method
   );
   return Users;
@@ -38,7 +37,6 @@ function validateUser(user) {
   const schema = Joi.object({
     name: Joi.string().min(2).max(50).required(),
     username: Joi.string().min(5).max(255).required(),
-    password: Joi.string().min(5).max(255).required(),
     phone: Joi.string().min(2).max(50).required(),
     email: Joi.string().email({
       minDomainSegments: 2,
