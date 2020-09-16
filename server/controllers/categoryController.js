@@ -13,12 +13,12 @@ const categoryCrontroller = {
     });
 
     if (!category) return res.status(404).send("Category  not found");
-    res.status(200).json({ data: category });
+    res.status(200).json({ data: { status: 1, statusMessage: "Category created!" } });
   },
   list: async (req, res) => {
-    const category = await Category.findAll();
+    const categories = await Category.findAll();
     if (!category) return res.status(404).send("Category  not found");
-    res.status(200).json({ data: category });
+    res.status(200).json({ data: categories });
   },
   listById: async (req, res) => {
     const category = await Category.findByPk(req.params.categoryId);
@@ -32,7 +32,7 @@ const categoryCrontroller = {
     let category = await Category.findByPk(req.params.categoryId);
     if (!category) return res.status(404).send("Category  not found");
     category.update(req.body, { fields: Object.keys(req.body) });
-    res.status(200).json({ data: category });
+    res.status(200).json({ data: { status: 1, statusMessage: "Category updated!" } });
   },
   delete: async (req, res) => {
     let category = await Category.findByPk(req.params.categoryId);

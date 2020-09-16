@@ -16,7 +16,7 @@ const suppliersCrontroller = {
     });
 
     if (!supplier) return res.status(404).send("Supplier  not found");
-    res.status(200).json({ data: supplier });
+    res.status(200).json({ data: { status: 1, statusMessage: "Supplier created!" } });
   },
   list: async (req, res) => {
     const suppliers = await Suppliers.findAll();
@@ -35,7 +35,7 @@ const suppliersCrontroller = {
     let supplier = await Suppliers.findByPk(req.params.supplierId);
     if (!supplier) return res.status(404).send("Supplier  not found");
     supplier.update(req.body, { fields: Object.keys(req.body) });
-    res.status(200).json({ data: supplier });
+    res.status(200).json({ data: { status: 1, statusMessage: "Supplier updated!" } });
   },
   delete: async (req, res) => {
     let supplier = await Suppliers.findByPk(req.params.suppliersId);

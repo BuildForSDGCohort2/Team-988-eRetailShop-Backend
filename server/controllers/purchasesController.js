@@ -16,7 +16,7 @@ const purchasesCrontroller = {
     });
 
     if (!purchase) return res.status(404).send("Purchase  not found");
-    res.status(200).json({ data: purchase });
+    res.status(200).json({ data: { status: 1, statusMessage: "Purchase created!" } });
   },
   list: async (req, res) => {
     const purchases = await Purchases.findAll();
@@ -35,7 +35,7 @@ const purchasesCrontroller = {
     let purchase = await Purchases.findByPk(req.params.purchaseId);
     if (!purchase) return res.status(404).send("Purchase  not found");
     purchase.update(req.body, { fields: Object.keys(req.body) });
-    res.status(200).json({ data: purchase });
+    res.status(200).json({ data: { status: 1, statusMessage: "Purchase updated!" } });
   },
   delete: async (req, res) => {
     let purchase = await Purchases.findByPk(req.params.purchaseId);

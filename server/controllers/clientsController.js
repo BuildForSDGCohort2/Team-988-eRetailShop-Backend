@@ -16,7 +16,7 @@ const clientsCrontroller = {
     });
 
     if (!client) return res.status(404).send("client  not found");
-    res.status(200).json({ data: client });
+    res.status(200).json({ data: { status: 1, statusMessage: "Client created!" } });
   },
   list: async (req, res) => {
     const clients = await Clients.findAll();
@@ -35,7 +35,7 @@ const clientsCrontroller = {
     let client = await Clients.findByPk(req.params.clientId);
     if (!client) return res.status(404).send("client  not found");
     client.update(req.body, { fields: Object.keys(req.body) });
-    res.status(200).json({ data: client });
+    res.status(200).json({ data: { status: 1, statusMessage: "Client updated!" } });
   },
   delete: async (req, res) => {
     let client = await Clients.findByPk(req.params.clientId);

@@ -18,8 +18,17 @@ const authCrontroller = {
     );
     if (!validatePassword)
       return res.status(400).send("Invalid username or password!");
-    const token = generateAuthToken(user.username,user.profileid);
+    const token = generateAuthToken(user.id,user.username,user.profileid,user.first_login_flag);
     res.send(token);
+  },
+  updateFirstLogin: async (req, res) => {
+    const salt = await bcrypt.genSalt(10);
+    const encryptPwd = await bcrypt.hash(req.body.confirmpassword, salt);
+    let user = await Users.findByPk(req.params.userId);
+    if (!user) return res.status(404).send("user  not found");
+    user.update({ first_login_flag: false, password:encryptPwd });
+    user = await user.save();
+    res.status(200).json({ data: { status: 1, statusMessage: "User updated!" } });
   },
 };
 

@@ -5,4 +5,6 @@ const authRoute = express.Router();
 
 authRoute.post("/auth", authCrontroller.auth);
 
+authRoute.put("/auth/:userId", authCrontroller.updateFirstLogin);
+
 module.exports = authRoute;

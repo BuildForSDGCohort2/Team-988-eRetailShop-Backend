@@ -16,7 +16,7 @@ const ordersCrontroller = {
     });
 
     if (!order) return res.status(404).send("order  not found");
-    res.status(200).json({ data: order });
+    res.status(200).json({ data: { status: 1, statusMessage: "Order created!" } });
   },
   list: async (req, res) => {
     const orders = await Orders.findAll();
@@ -35,7 +35,7 @@ const ordersCrontroller = {
     let order = await Orders.findByPk(req.params.orderId);
     if (!order) return res.status(404).send("order  not found");
     order.update(req.body, { fields: Object.keys(req.body) });
-    res.status(200).json({ data: order });
+    res.status(200).json({ data: { status: 1, statusMessage: "Order updated!" } });
   },
   delete: async (req, res) => {
     let order = await Orders.findByPk(req.params.orderId);

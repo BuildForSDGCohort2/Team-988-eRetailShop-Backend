@@ -21,7 +21,7 @@ const salesCrontroller = {
     });
 
     if (!sale) return res.status(404).send("Sale  not found");
-    res.status(200).json({ data: sale });
+    res.status(200).json({ data: { status: 1, statusMessage: "Sale created!" } });
   },
   list: async (req, res) => {
     const sales = await Sales.findAll();
@@ -40,7 +40,7 @@ const salesCrontroller = {
     let sale = await Sales.findByPk(req.params.saleId);
     if (!sale) return res.status(404).send("Sale  not found");
     sale.update(req.body, { fields: Object.keys(req.body) });
-    res.status(200).json({ data: sale });
+    res.status(200).json({ data: { status: 1, statusMessage: "Sale updated!" } });
   },
   delete: async (req, res) => {
     let sale = await Sales.findByPk(req.params.saleId);
