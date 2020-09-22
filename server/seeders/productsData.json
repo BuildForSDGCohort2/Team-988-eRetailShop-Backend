@@ -1,0 +1,185 @@
+[
+      {
+        "code": "101",
+        "description": "Fanta Citron",
+        "image": "views/img/products/101/622.png",
+        "stock": "9",
+        "buyingPrice": "5000",
+        "sellingPrice": "2100",
+        "CategoryId": "1"
+      },
+      {
+        "code": "102",
+        "description": "Fanta Orange",
+        "image": "views/img/products/102/495.jpg",
+        "stock": "14",
+        "buyingPrice": "4500",
+        "sellingPrice": "6300",
+        "CategoryId":"1"
+      },
+  
+      {
+        "code": "103",
+        "description": "Fanta Coca Cola",
+        "image": "views/img/products/102/495.jpg",
+        "stock": "20",
+        "buyingPrice": "4500",
+        "sellingPrice": "6300",
+        "CategoryId":"1"
+      },
+      {
+        "code": "104",
+        "description": "Fanta Tonic",
+        "image": "views/img/products/102/495.jpg",
+        "stock": "24",
+        "buyingPrice": "4500",
+        "sellingPrice": "6300",
+        "CategoryId":"1"
+      },
+      {
+        "code": "105",
+        "description": "Fanta Sprite",
+        "image": "views/img/products/102/495.jpg",
+        "stock": "24",
+        "buyingPrice": "4500",
+        "sellingPrice": "6300",
+        "CategoryId":"1"
+      },
+      {
+        "code": "106",
+        "description": "Fanta Fiesta",
+        "image": "views/img/products/102/495.jpg",
+        "stock": "24",
+        "buyingPrice": "4500",
+        "sellingPrice": "6300",
+        "CategoryId":"1"
+      },
+      {
+        "code": "107",
+        "description": "Amazi- Nil",
+        "image": "views/img/products/102/495.jpg",
+        "stock": "20",
+        "buyingPrice": "4500",
+        "sellingPrice": "6300",
+        "CategoryId":"1"
+      },
+      {
+        "code": "108",
+        "description": "Amazi- Inyange",
+        "image": "views/img/products/102/495.jpg",
+        "stock": "20",
+        "buyingPrice": "4500",
+        "sellingPrice": "6300",
+        "CategoryId":"1"
+      },
+  
+      {
+        "code": "201",
+        "description": "Primus",
+        "image": "views/img/products/102/495.jpg",
+        "stock": "24",
+        "buyingPrice": "4500",
+        "sellingPrice": "6300",
+        "CategoryId":"2"
+      },
+      {
+        "code": "202",
+        "description": "Mutzig",
+        "image": "views/img/products/102/495.jpg",
+        "stock": "24",
+        "buyingPrice": "4500",
+        "sellingPrice": "6300",
+        "CategoryId":"2"
+      },
+      {
+        "code": "203",
+        "description": "Amstel",
+        "image": "views/img/products/102/495.jpg",
+        "stock": "24",
+        "buyingPrice": "4500",
+        "sellingPrice": "6300",
+        "CategoryId":"2"
+      },
+      {
+        "code": "204",
+        "description": "Skol",
+        "image": "views/img/products/102/495.jpg",
+        "stock": "24",
+        "buyingPrice": "4500",
+        "sellingPrice": "6300",
+        "CategoryId":"2"
+      },
+      {
+        "code": "205",
+        "description": "Heineken",
+        "image": "views/img/products/102/495.jpg",
+        "stock": "24",
+        "buyingPrice": "4500",
+        "sellingPrice": "6300",
+        "CategoryId":"2"
+      },
+      {
+        "code": "301",
+        "description": "J & B",
+        "image": "views/img/products/102/495.jpg",
+        "stock": "10",
+        "buyingPrice": "4500",
+        "sellingPrice": "6300",
+        "CategoryId":"3"
+      },
+      {
+        "code": "302",
+        "description": "Black Label",
+        "image": "views/img/products/102/495.jpg",
+        "stock": "15",
+        "buyingPrice": "4500",
+        "sellingPrice": "6300",
+        "CategoryId":"3"
+      },
+      {
+        "code": "303",
+        "description": "Red Label",
+        "image": "views/img/products/102/495.jpg",
+        "stock": "15",
+        "buyingPrice": "4500",
+        "sellingPrice": "6300",
+        "CategoryId":"3"
+      },
+      {
+        "code": "304",
+        "description": "Blue Label",
+        "image": "views/img/products/102/495.jpg",
+        "stock": "10",
+        "buyingPrice": "4500",
+        "sellingPrice": "6300",
+        "CategoryId":"3"
+      },
+      {
+        "code": "305",
+        "description": "Henessy",
+        "image": "views/img/products/102/495.jpg",
+        "stock": "5",
+        "buyingPrice": "4500",
+        "sellingPrice": "6300",
+        "CategoryId":"3"
+      },
+      {
+        "code": "306",
+        "description": "Chivas Legal",
+        "image": "views/img/products/102/495.jpg",
+        "stock": "5",
+        "buyingPrice": "4500",
+        "sellingPrice": "6300",
+        "CategoryId":"3"
+      },
+      {
+        "code": "307",
+        "description": "Gordon",
+        "image": "views/img/products/102/495.jpg",
+        "stock": "5",
+        "buyingPrice": "4500",
+        "sellingPrice": "6300",
+        "CategoryId":"3"
+      }
+    ]
+  

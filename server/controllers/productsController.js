@@ -11,7 +11,6 @@ const productsCrontroller = {
     const product = await Products.create({
       productname: req.body.productname,
       productnumber: req.body.productnumber,
-      image: req.body.image,
       startinginventory: req.body.startinginventory,
       inventoryshipped: req.body.inventoryshipped,
       inventoryonhand: req.body.inventoryonhand,
@@ -26,6 +25,11 @@ const productsCrontroller = {
   },
   list: async (req, res) => {
     const products = await Products.findAll();
+    if (!products) return res.status(404).send("Products  not found");
+    res.status(200).json({ data: products });
+  },
+  listByCateg: async (req, res) => {
+    const products = await Products.findAll({where: { categoryId: req.params.categId}});
     if (!products) return res.status(404).send("Products  not found");
     res.status(200).json({ data: products });
   },

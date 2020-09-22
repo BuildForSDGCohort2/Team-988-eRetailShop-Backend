@@ -17,7 +17,7 @@ const categoryCrontroller = {
   },
   list: async (req, res) => {
     const categories = await Category.findAll();
-    if (!category) return res.status(404).send("Category  not found");
+    if (!categories) return res.status(404).send("Category  not found");
     res.status(200).json({ data: categories });
   },
   listById: async (req, res) => {

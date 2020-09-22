@@ -13,10 +13,6 @@ categoryRoute.post("/category", auth, categoryCrontroller.create);
 
 categoryRoute.put("/category/:categoryId", auth, categoryCrontroller.update);
 
-categoryRoute.delete(
-  "/category/:categoryId",
-  [auth, profileCheck.isStoreManager],
-  categoryCrontroller.delete
-);
+categoryRoute.delete("/category/:categoryId",auth,categoryCrontroller.delete);
 
 module.exports = categoryRoute;

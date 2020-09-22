@@ -1,0 +1,34 @@
+ [
+      {
+        "name": "john Doe",
+        "idDocument": "12345",
+        "email": "john@gmail.com",
+        "phone": "(555)567-9999",
+        "address": "evergreen terrace 1543",
+        "birthdate": "1986-01-05"
+      },
+      {
+        "name": "Jane Doe",
+        "idDocument": "123456785",
+        "email": "jane@gmail.com",
+        "phone": "(555) 789-9045",
+        "address": "Carlfield 55",
+        "birthdate": "1983-06-22"
+      },
+      {
+        "name": "Juan Villegas",
+        "idDocument": "12344321",
+        "email": "juan@gmail.com",
+        "phone": "(305) 455-6677",
+        "address": "Main Street 45",
+        "birthdate": "1976-04-12"
+      },
+      {
+        "name": "Andrew Wallace",
+        "idDocument": "256548520",
+        "email": "andrew@gmail.com",
+        "phone": "(305) 256-6541",
+        "address": "Abbey Road 45",
+        "birthdate": "1989-08-15"
+      }
+ ]

@@ -6,8 +6,12 @@ const CreateTokenAPI = require("../services/CreateTokenAPI");
 
 const momoRoute = express.Router();
 
-momoRoute.post("/generatetoken", CreateTokenAPI);
-momoRoute.post("/momopay", momoPayController.doPayment);
-momoRoute.get("/transactionstatus", momoPayController.getTransactionStatus);
+momoRoute.post("/generatetoken", auth, CreateTokenAPI);
+momoRoute.post("/momopay/pay", auth, momoPayController.doPayment);
+momoRoute.get(
+  "/momopay/transactionstatus",
+  auth,
+  momoPayController.getTransactionStatus
+);
 
 module.exports = momoRoute;

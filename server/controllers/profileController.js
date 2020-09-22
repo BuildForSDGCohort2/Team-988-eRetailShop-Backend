@@ -13,7 +13,7 @@ const profileCrontroller = {
     });
 
     if (!profile) return res.status(404).send("profile  not found");
-    res.status(200).json({ data: profile });
+    res.status(200).json({ data: { status: 1, statusMessage: "Profile created!" } });
   },
   list: async (req, res) => {
     const profiles = await Profiles.findAll({
@@ -22,7 +22,7 @@ const profileCrontroller = {
       },
     });
     if (!profiles) return res.status(404).send("profile  not found");
-    res.status(200).json({ data: { status: 1, statusMessage: "Profile created!" } });
+    res.status(200).json({ data: profiles });
   },
   listById: async (req, res) => {
     const profile = await Profiles.findByPk(req.params.profileId);
