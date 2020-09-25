@@ -38,11 +38,13 @@ const momoPayController = {
 
     try {
       let response = await axios(URL, config);
-      if (!response.status == "202")
-        return res.status(404).send("UUID  not found");
-      return res
-        .status(202)
-        .json({ uuid: user_uuid, authCode: authToken, data: response.data });
+      if (response.status == "202"){
+        res.status(200).json({ data: { uuid: user_uuid, authCode: authToken } });
+      }else{
+        return res.status(response.status).send("UUID  not found");
+      }
+
+
     } catch (error) {
       console.log(error);
     }
@@ -63,7 +65,9 @@ const momoPayController = {
 
     try {
       let response = await axios(URL, config);
-      if (response.status == "200") return res.status(200).json(response.data);
+      if (response.status == "200") {
+        res.status(200).json( { data: response.data } );
+      }
       return res.status(response.status).json(response.statusText);
     } catch (error) {
       console.log(error);

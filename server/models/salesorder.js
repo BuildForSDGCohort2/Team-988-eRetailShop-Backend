@@ -2,7 +2,7 @@
 const Joi = require("joi");
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Sales extends Model {
+  class SalesOrder extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -12,8 +12,9 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Sales.init(
+  SalesOrder.init(
     {
+      orderNumber: DataTypes.STRING,
       customerId: DataTypes.INTEGER,
       sellerId: DataTypes.INTEGER,
       productId: DataTypes.INTEGER,
@@ -22,17 +23,18 @@ module.exports = (sequelize, DataTypes) => {
       netPrice: DataTypes.REAL,
       totalPrice: DataTypes.REAL,
       paymentMethod: DataTypes.STRING,
-      salestype: DataTypes.STRING,
     },
     {
       sequelize,
-      modelName: "Sales",
+      timestamps: true,
+      paranoid: true,
+      modelName: "SalesOrder",
     }
   );
-  return Sales;
+  return SalesOrder;
 };
 
-function validateSale(product) {
+function validateSaleOrder(saleorder) {
   const schema = Joi.object({
     customerId: Joi.number().integer().required(),
     sellerId: Joi.number().integer().required(),
@@ -42,10 +44,9 @@ function validateSale(product) {
     netPrice: Joi.number().required(),
     totalPrice: Joi.number().required(),
     paymentMethod: Joi.string().min(2).max(50).required(),
-    salestype: Joi.string().min(2).max(50).required(),
   });
 
-  return schema.validate(product);
+  return schema.validate(saleorder);
 }
 
-module.exports.validate = validateSale;
+module.exports.validate = validateSaleOrder;

@@ -6,16 +6,12 @@ const bodyParser = require("body-parser");
 // Include Routes
 const usersRoute = require("./usersRoute");
 const authRoute = require("./authRoute");
+const profileRoute = require("./profileRoute");
 
 const categoryRoute = require("./categoryRoute");
 const clientsRoute = require("./clientsRoute");
-const ordersRoute = require("./ordersRoute");
 const productsRoute = require("./productsRoute");
-const purchasesRoute = require("./purchasesRoute");
-const salesRoute = require("./salesRoute");
-const suppliersRoute = require("./suppliersRoute");
-const profileRoute = require("./profileRoute");
-
+const salesOrderRoute = require("./salesOrderRoute");
 const momoRoute = require("./momoRoute");
 
 // Set up the express app
@@ -42,11 +38,8 @@ app.use("/api/v1/", authRoute);
 app.use("/api/v1/", usersRoute);
 app.use("/api/v1/", categoryRoute);
 app.use("/api/v1/", clientsRoute);
-app.use("/api/v1/", ordersRoute);
 app.use("/api/v1/", productsRoute);
-app.use("/api/v1/", purchasesRoute);
-app.use("/api/v1/", salesRoute);
-app.use("/api/v1/", suppliersRoute);
+app.use("/api/v1/", salesOrderRoute);
 app.use("/api/v1/", profileRoute);
 //Momo Payment
 app.use("/api/v1/", momoRoute);
