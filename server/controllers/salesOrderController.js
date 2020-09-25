@@ -19,6 +19,7 @@ const salesOrderCrontroller = {
         "netPrice",
         "totalPrice",
         "paymentMethod",
+        "externalId",
       ])
     );
     SalesOrder.addHook("beforeSave", (salesorder, options) => {

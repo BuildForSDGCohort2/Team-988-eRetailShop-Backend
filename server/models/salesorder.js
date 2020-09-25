@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
       netPrice: DataTypes.REAL,
       totalPrice: DataTypes.REAL,
       paymentMethod: DataTypes.STRING,
+      externalId: DataTypes.STRING,
     },
     {
       sequelize,
@@ -44,6 +45,7 @@ function validateSaleOrder(saleorder) {
     netPrice: Joi.number().required(),
     totalPrice: Joi.number().required(),
     paymentMethod: Joi.string().min(2).max(50).required(),
+    externalId: Joi.string().min(2).max(100).required(),
   });
 
   return schema.validate(saleorder);
