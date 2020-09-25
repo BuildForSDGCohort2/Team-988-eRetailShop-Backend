@@ -11,7 +11,8 @@ const profileRoute = require("./profileRoute");
 const categoryRoute = require("./categoryRoute");
 const clientsRoute = require("./clientsRoute");
 const productsRoute = require("./productsRoute");
-const salesOrderRoute = require("./salesOrderRoute");
+const orderRoute = require("./orderRoute");
+const saleRoute = require("./saleRoute");
 const momoRoute = require("./momoRoute");
 
 // Set up the express app
@@ -39,7 +40,8 @@ app.use("/api/v1/", usersRoute);
 app.use("/api/v1/", categoryRoute);
 app.use("/api/v1/", clientsRoute);
 app.use("/api/v1/", productsRoute);
-app.use("/api/v1/", salesOrderRoute);
+app.use("/api/v1/", orderRoute);
+app.use("/api/v1/", saleRoute);
 app.use("/api/v1/", profileRoute);
 //Momo Payment
 app.use("/api/v1/", momoRoute);

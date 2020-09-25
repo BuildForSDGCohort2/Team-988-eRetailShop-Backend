@@ -1,9 +1,7 @@
-const bcrypt = require("bcrypt");
-const _ = require("lodash");
 const Clients = require("../models").Clients;
 const { validate } = require("../models/clients");
 
-const clientsCrontroller = {
+const clientsController = {
   create: async (req, res) => {
     const { error } = validate(req.body);
     if (error) return res.status(400).send(error.details[0].message);
@@ -16,7 +14,9 @@ const clientsCrontroller = {
     });
 
     if (!client) return res.status(404).send("client  not found");
-    res.status(200).json({ data: { status: 1, statusMessage: "Client created!" } });
+    res
+      .status(200)
+      .json({ data: { status: 1, statusMessage: "Client created!" } });
   },
   list: async (req, res) => {
     const clients = await Clients.findAll();
@@ -35,7 +35,9 @@ const clientsCrontroller = {
     let client = await Clients.findByPk(req.params.clientId);
     if (!client) return res.status(404).send("client  not found");
     client.update(req.body, { fields: Object.keys(req.body) });
-    res.status(200).json({ data: { status: 1, statusMessage: "Client updated!" } });
+    res
+      .status(200)
+      .json({ data: { status: 1, statusMessage: "Client updated!" } });
   },
   delete: async (req, res) => {
     let client = await Clients.findByPk(req.params.clientId);
@@ -45,4 +47,4 @@ const clientsCrontroller = {
   },
 };
 
-module.exports = clientsCrontroller;
+module.exports = clientsController;
