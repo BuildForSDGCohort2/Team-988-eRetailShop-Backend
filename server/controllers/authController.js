@@ -2,8 +2,7 @@ const Joi = require("joi");
 const bcrypt = require("bcrypt");
 const _ = require("lodash");
 const Users = require("../models").Users;
-const generateAuthToken = require("../services/generateAuthenticationToken")
-  .generateAuthToken;
+const generateAuthToken = require("../services/generateAuthenticationToken");
 
 const authCrontroller = {
   auth: async (req, res) => {
