@@ -38,8 +38,6 @@ function validateProduct(product) {
     productname: Joi.string().min(2).max(50).required(),
     productnumber: Joi.string().min(2).max(50).required(),
     startinginventory: Joi.number().integer().required(),
-    inventoryshipped: Joi.number().integer().required(),
-    inventoryonhand: Joi.number().integer().required(),
     minimumurequired: Joi.number().integer().required(),
     buyingPrice: Joi.number().integer().required(),
     sellingPrice: Joi.number().integer().required(),

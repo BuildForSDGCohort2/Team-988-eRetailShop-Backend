@@ -21,8 +21,7 @@ const usersCrontroller = {
         "username",
         "email",
         "profileid",
-        "phone",
-        "photo",
+        "phone"
       ])
     );
     const salt = await bcrypt.genSalt(10);

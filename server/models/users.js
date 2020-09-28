@@ -42,8 +42,7 @@ function validateUser(user) {
       minDomainSegments: 2,
       tlds: { allow: ["com", "net"] },
     }),
-    profileid: Joi.number().integer().required(),
-    photo: Joi.string().min(2).max(50).required(),
+    profileid: Joi.number().integer().required()
   });
 
   return schema.validate(user);

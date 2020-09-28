@@ -8,17 +8,21 @@ const productsCrontroller = {
     const { error } = validate(req.body);
     if (error) return res.status(400).send(error.details[0].message);
 
-    const product = await Products.create({
-      productname: req.body.productname,
-      productnumber: req.body.productnumber,
-      startinginventory: req.body.startinginventory,
-      inventoryshipped: req.body.inventoryshipped,
-      inventoryonhand: req.body.inventoryonhand,
-      minimumurequired: req.body.minimumurequired,
-      buyingPrice: req.body.buyingPrice,
-      sellingPrice: req.body.sellingPrice,
-      categoryId: req.body.categoryId,
-    });
+    let product = new Products(
+      _.pick(req.body, [
+        "productname",
+        "productnumber",
+        "startinginventory",
+        "minimumurequired",
+        "buyingPrice",
+        "sellingPrice",
+        "categoryId",
+      ])
+    );
+
+    product.inventoryonhand = Number(req.body.startinginventory);
+    product.inventoryshipped = 0;
+    product = await product.save();
 
     if (!product) return res.status(404).send("Product  not found");
     res
