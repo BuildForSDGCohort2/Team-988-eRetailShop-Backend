@@ -1,11 +1,10 @@
 require("dotenv").config();
-const jwt = require("jsonwebtoken");
+const jwt = require("njwt");
 
-const generateAuthToken = (userid, username,profileid,first_login_flag) =>{
-  const token = jwt.sign({ userid:userid,username: username,profileid: profileid, first_login_flag:first_login_flag},
-    process.env.jwtPrivateKey
-  );
-  return token;
-}
+const generateAuthToken = (payload) => {
+  const token = jwt.create(payload, process.env.jwtPrivateKey);
+  token.setExpiration(new Date().getTime() + 60 * 1000);
+  return token.compact();
+};
 
 module.exports = generateAuthToken;

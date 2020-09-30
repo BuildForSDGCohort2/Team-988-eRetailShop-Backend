@@ -11,7 +11,9 @@ function auth(req, res, next) {
     const decoded = jwt.verify(token, process.env.jwtPrivateKey);
     req.user = decoded;
     next();
-  } catch (ex) {
+  } catch (error) {
+    if (error.name === "TokenExpiredError")
+      return res.status(403).send("Token expired");
     res.status(400).send("Invalid token.");
   }
 }

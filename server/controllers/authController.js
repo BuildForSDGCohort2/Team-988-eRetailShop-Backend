@@ -18,12 +18,14 @@ const authCrontroller = {
     );
     if (!validatePassword)
       return res.status(400).send("Invalid username or password!");
-    const token = generateAuthToken(
-      user.id,
-      user.username,
-      user.profileid,
-      user.first_login_flag
-    );
+
+    const userData = {
+      userid: user.id,
+      username: user.username,
+      profileid: user.profileid,
+      first_login_flag: user.first_login_flag,
+    };
+    const token = generateAuthToken(userData);
     res.send(token);
   },
   updateFirstLogin: async (req, res) => {
